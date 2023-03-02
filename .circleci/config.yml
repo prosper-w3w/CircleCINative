@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - run: chmod +x circlecinative_build.sh
-      - run: ./criclecinative_build.sh
+      - run: ./circlecinative_build.sh
 workflows:
   build-native-library-wf:
     jobs:
