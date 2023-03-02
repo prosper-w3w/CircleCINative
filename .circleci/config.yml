@@ -1,0 +1,21 @@
+version: 2.1
+orbs:
+  android: circleci/android@2.1.2
+
+jobs:
+  build-native-library:
+    docker:
+      - image: cimg/android:2023.02.1-ndk
+    steps:
+      - checkout
+      - run:
+          name: chmod permission for circlecinative bash script
+          command: chmod +x circlecinative_build.sh
+      -run:
+        name: build native library
+        command: ./criclecinative_build.sh
+workflows:
+  build-native-library-wf:
+    jobs:
+      - build-native-library:
+          name: build-native-library
