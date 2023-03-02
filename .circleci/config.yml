@@ -10,6 +10,10 @@ jobs:
       - checkout
       - run: chmod +x circlecinative_build.sh
       - run: ./circlecinative_build.sh
+      - store_artifacts:
+          path: .circleci/arm64-v8a/libcirclecinative.so
+      - store_artifacts:
+          path: .circleci/armeabi-v7a/libcirclecinative.so
 workflows:
   build-native-library-wf:
     jobs:
