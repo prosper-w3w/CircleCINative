@@ -9,8 +9,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: chmod permission for circlecinative bash script
-          command: chmod +x circlecinative_build.sh
+        name: chmod permission for circlecinative bash script
+        command: chmod +x circlecinative_build.sh
       -run:
         name: build native library
         command: ./criclecinative_build.sh
