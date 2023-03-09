@@ -9,7 +9,6 @@ rm -rf .dist/
 mkdir .dist/
 
 # set the target - this will eventually be a for loop
-cd ./.circleci
 TARGETS=(armeabi-v7a arm64-v8a)
 for TARGET in "${TARGETS[@]}"; do
   # remove any old builds
@@ -38,12 +37,13 @@ for TARGET in "${TARGETS[@]}"; do
   make -j6
 
   # move the lib up a folder level - ultimately this might push to S3?
-  if [ -d ../dist/"${TARGET}"/ ]; then
-    rm -r ../dist/"${TARGET}"/
+  if [ -d ../.dist/"${TARGET}"/ ]; then
+    rm -r ../.dist/"${TARGET}"/
   fi
-  mkdir ../dist/"${TARGET}"/
-  mv lib*.so ../dist/"${TARGET}"/
+  mkdir ../.dist/"${TARGET}"/
+  mv lib*.so ../.dist/"${TARGET}"/
   cd ..
+  rm -rf build
 done
 
-tar -czf ../../circlenative-build-artifacts.tar.gz ../../.dist/
+tar -czf circlenative-build-artifacts.tar.gz .dist/
