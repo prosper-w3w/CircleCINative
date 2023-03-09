@@ -12,7 +12,7 @@ jobs:
       - run: chmod +x .android/circlecinative_build.sh
       - run: .android/circlecinative_build.sh
       - store_artifacts:
-          path: .circleci/arm*
+          path: circlenative-build-artifacts.tar.gz
 workflows:
   build-native-library-wf:
     jobs:

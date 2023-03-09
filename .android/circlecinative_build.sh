@@ -5,6 +5,8 @@ set -x
 export PLATFORM="21"
 export CMAKE_TOOLCHAIN_FILE=${ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake
 
+rm -rf ../../.dist/
+mkdir ../../.dist/
 
 # set the target - this will eventually be a for loop
 cd ./.circleci
@@ -36,10 +38,12 @@ for TARGET in "${TARGETS[@]}"; do
   make -j6
 
   # move the lib up a folder level - ultimately this might push to S3?
-  if [ -d ../"${TARGET}"/ ]; then
-    rm -r ../"${TARGET}"/
+  if [ -d ../dist/"${TARGET}"/ ]; then
+    rm -r ../dist/"${TARGET}"/
   fi
-  mkdir ../"${TARGET}"/
-  mv lib*.so ../"${TARGET}"/
+  mkdir ../dist/"${TARGET}"/
+  mv lib*.so ../dist/"${TARGET}"/
   cd ..
 done
+
+tar -czf ../../circlenative-build-artifacts.tar.gz ../../.dist/
