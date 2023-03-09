@@ -4,15 +4,13 @@ orbs:
 
 jobs:
   build-native-library:
-    working_directory: ~/.android
     docker:
       - image: cimg/android:2023.02.1-ndk
     steps:
       - checkout
-      - run: cd .android; pwd;
       - run: ls
-      - run: chmod +x circlecinative_build.sh
-      - run: ./circlecinative_build.sh
+      - run: chmod +x ./android/circlecinative_build.sh
+      - run: ./android/circlecinative_build.sh
       - store_artifacts:
           path: .circleci/arm64-v8a/libcirclecinative.so
       - store_artifacts:
