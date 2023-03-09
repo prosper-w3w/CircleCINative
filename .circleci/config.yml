@@ -4,6 +4,7 @@ orbs:
 
 jobs:
   build-native-library:
+    working_directory: ~/.android
     docker:
       - image: cimg/android:2023.02.1-ndk
     steps:
