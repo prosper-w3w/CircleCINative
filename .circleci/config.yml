@@ -9,6 +9,7 @@ jobs:
     steps:
       - checkout
       - run: cd .android
+      - run: ls
       - run: chmod +x circlecinative_build.sh
       - run: ./circlecinative_build.sh
       - store_artifacts:
