@@ -9,8 +9,8 @@ jobs:
     steps:
       - checkout
       - run: ls
-      - run: chmod +x ./android/circlecinative_build.sh
-      - run: ./android/circlecinative_build.sh
+      - run: chmod +x .android/circlecinative_build.sh
+      - run: .android/circlecinative_build.sh
       - store_artifacts:
           path: .circleci/arm64-v8a/libcirclecinative.so
       - store_artifacts:
