@@ -5,7 +5,7 @@ set -x
 export PLATFORM="21"
 export CMAKE_TOOLCHAIN_FILE=${ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake
 
-echo ${pwd}
+echo "${pwd}"
 rm -rf ../../.dist/
 mkdir ../../.dist/
 
