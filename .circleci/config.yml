@@ -8,7 +8,7 @@ jobs:
       - image: cimg/android:2023.02.1-ndk
     steps:
       - checkout
-      - run: chmod +x circlecinative_build.sh
+      - run: chmod +x .android/circlecinative_build.sh
       - run: ./circlecinative_build.sh
       - store_artifacts:
           path: .circleci/arm64-v8a/libcirclecinative.so
