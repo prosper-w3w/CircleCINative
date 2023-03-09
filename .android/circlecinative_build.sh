@@ -21,7 +21,7 @@ for TARGET in "${TARGETS[@]}"; do
   cd build
 
   # cmake build
-  cmake ../../app/src/main/cpp \
+  cmake ../app/src/main/cpp \
     -DBUILD_TESTS=NO \
     -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE} \
     -DANDROID_NDK=${ANDROID_NDK_HOME} \
